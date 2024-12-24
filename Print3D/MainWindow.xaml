@@ -1,0 +1,40 @@
+﻿<Window x:Class="Print3D.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:helix="http://helix-toolkit.org/wpf"
+        Title="Print3D" Height="550" Width="800">
+    <Grid>
+        <helix:HelixViewport3D Name="helixViewport" Grid.Row="0">
+            <!-- Источник света -->
+            <ModelVisual3D>
+                <ModelVisual3D.Content>
+                    <Model3DGroup x:Name="modelGroupUI">
+                        <DirectionalLight Color="White" Direction="0,-1,-1" />
+                    </Model3DGroup>
+                </ModelVisual3D.Content>
+            </ModelVisual3D>
+        </helix:HelixViewport3D>
+
+        <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10">
+            <TextBlock Text="Размеры куба" Margin="5" />
+            <TextBox x:Name="WidthTextBox" Text="1" Margin="5" />
+            <TextBox x:Name="HeightTextBox" Text="1" Margin="5" />
+            <TextBox x:Name="DepthTextBox" Text="1" Margin="5" />
+            <Button Content="Создать куб" Click="CreateBox_Click" Margin="5" />
+
+            <TextBlock Text="Радиус сферы" Margin="5" />
+            <TextBox x:Name="RadiusTextBox" Text="1" Margin="5" />
+            <Button Content="Создать сферу" Click="CreateSphere_Click" Margin="5" />
+
+            <TextBlock Text="Перемещение" Margin="5" />
+            <TextBox x:Name="MoveXTextBox" Text="0" Margin="5" />
+            <TextBox x:Name="MoveYTextBox" Text="0" Margin="5" />
+            <TextBox x:Name="MoveZTextBox" Text="0" Margin="5" />
+            <Button Content="Переместить объект" Click="MoveObject_Click" Margin="5" />
+            
+            <Button Content="Удалить модель" Click="DeleteModel_Click" Margin="5" />
+            <Button Content="Сохранить модели" Click="SaveModels_Click" Margin="5" />
+            <Button Content="Загрузить модели" Click="LoadModels_Click" Margin="5" />
+        </StackPanel>
+    </Grid>
+</Window>
